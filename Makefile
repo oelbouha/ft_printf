@@ -6,13 +6,13 @@ CC := cc
 FLAGS := -Wall -Wextra -Werror
 
 SRC :=	ft_printf.c \
-		ft_count.c \
 		ft_strlen.c \
-		ft_print_base.c 
+		convert_base.c 
 	
 
 
 OBJ := $(SRC:.c=.o)
+
 RM = rm -f
 
 all: $(NAME)
@@ -21,7 +21,7 @@ all: $(NAME)
 	gcc $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJ)
-		ar -rcs $(NAME) $(OBJ)
+		ar -rc $(NAME) $(OBJ)
 
 
 clean: 

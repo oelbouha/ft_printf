@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   convert_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelbouha <oelbouha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:58:38 by oelbouha          #+#    #+#             */
-/*   Updated: 2022/10/11 16:43:38 by oelbouha         ###   ########.fr       */
+/*   Updated: 2022/10/26 12:55:43 by oelbouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
-return(1);
+	return (1);
 }
 
 int	ft_putstr(char *str)
@@ -37,7 +37,7 @@ int	ft_putstr(char *str)
 	return (0);
 }
 
-void	ft_putnbr_base(unsigned long long n, char *base)
+void	ft_putnbr_base(unsigned long n, char *base)
 {
 	unsigned int	size;
 
@@ -51,7 +51,7 @@ void	ft_putnbr_base(unsigned long long n, char *base)
 	}
 }
 
-int	ft_print_base(unsigned long long n, char *base, char c)
+int	convert_base(unsigned long n, char *base, char c)
 {
 	unsigned int	len;
 	unsigned int	size;
@@ -61,8 +61,8 @@ int	ft_print_base(unsigned long long n, char *base, char c)
 		ft_putnbr_base(n, base);
 	else if (c == 'X')
 		ft_putnbr_base(n, base);
-    else
-        ft_putnbr_base(n, base);
+	else
+		ft_putnbr_base(n, base);
 	len = 0;
 	if (n == 0)
 		len = 1;
@@ -78,14 +78,12 @@ int	ft_putnbr(int nb)
 {
 	unsigned int	i;
 	unsigned int	n;
-	int				sign;
 	char			str[12];
 
-	sign = -1;
 	if (nb < 0)
 	{
 		write(1, "-", 1);
-		n = nb * sign;
+		n = nb * -1;
 	}
 	else
 		n = nb;
@@ -98,5 +96,7 @@ int	ft_putnbr(int nb)
 	}
 	str[i] = n % 10 + 48;
 	write (1, &str[i], 11 - i);
-	return (ft_count(nb));
+	if (nb < 0)
+		return (11 - i + 1);
+	return (11 - i);
 }
