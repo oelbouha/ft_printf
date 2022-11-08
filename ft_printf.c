@@ -6,7 +6,7 @@
 /*   By: oelbouha <oelbouha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:00:05 by oelbouha          #+#    #+#             */
-/*   Updated: 2022/10/26 13:00:53 by oelbouha         ###   ########.fr       */
+/*   Updated: 2022/10/28 10:12:55 by oelbouha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,11 @@ int	ft_printf(const char *format, ...)
 	va_end(ptr);
 	return (len);
 }
-// int main(void)
-// {
-// 	ft_printf("   hello%", "hello");
-// 	// printf("\n");
-// 	// printf("%d", printf("   hello%c%d%s", 'c', 123, "hello"));
-// }
+
+int	main(void)
+{
+    char *c ;
+    c = malloc(1);
+    *c = 'a';
+   ft_printf("%p", (int *)c);
+}

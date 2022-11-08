@@ -3,7 +3,7 @@ NAME := libftprintf.a
 
 CC := cc
 
-FLAGS := -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror -I.
 
 SRC :=	ft_printf.c \
 		ft_strlen.c \
@@ -32,7 +32,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
 
  
 
